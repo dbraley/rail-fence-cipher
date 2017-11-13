@@ -1,6 +1,6 @@
-// replace this generic Kata class with your main business class
-class Kata {
+class RailFenceCipher {
 
 }
 
-module.exports = Kata;
+export default RailFenceCipher;
+

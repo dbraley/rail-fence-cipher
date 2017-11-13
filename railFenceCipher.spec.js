@@ -1,11 +1,9 @@
-// change the require as needed to import your business class from the correct .js file
-const Kata = require('./kata');
+import RailFenceCipher from './railFenceCipher';
 
-// customize the descriptions of the suites and individual tests as needed
-describe('Kata business class can', () => {
+describe('RailFenceCipher business class can', () => {
   test('return an instance of the Kata class', () => {
-    const kata = new Kata();
-    expect(kata.constructor.name).toEqual('Kata');
+    const cipher = new RailFenceCipher();
+    expect(cipher.constructor.name).toEqual('RailFenceCipher');
   });
 
   xtest('skip a test marked with "xtest" instead of "test"', () => {
