@@ -20,4 +20,9 @@ describe('RailFenceCipher business class can', () => {
     const message = 'AAABBB';
     expect(cipher.encode(message, 2)).toEqual('ABABAB');
   });
+
+  test('encode the same message with three rails', () => {
+    const message = 'AAABBB';
+    expect(cipher.encode(message, 3)).toEqual('ABABBA');
+  });
 });
