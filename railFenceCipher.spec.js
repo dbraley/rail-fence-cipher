@@ -15,4 +15,9 @@ describe('RailFenceCipher business class can', () => {
     const message = 'Four score and seven years ago.';
     expect(cipher.encode(message)).toEqual(message);
   });
+
+  test('encode a double rail message', () => {
+    const message = 'AAABBB';
+    expect(cipher.encode(message, 2)).toEqual('ABABAB');
+  });
 });
