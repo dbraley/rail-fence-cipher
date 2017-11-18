@@ -28,6 +28,22 @@ export default function () {
     return container;
   }
 
+  function consumeTextAndDo(container, text, action){
+    let row = 0;
+    let col = 0;
+    let inc = 1;
+    while (text.length){
+      if (row >= container.length || row < 0) {
+        inc *= -1;
+        row += 2 * inc;
+      }
+      container[row][col] = action(text);
+      row += inc;
+      col++;
+    }
+  }
+
+
   return {
     encode: (plainText, numRails=1) => {
       if (numRails===1){
@@ -35,18 +51,8 @@ export default function () {
       }
       let pattern = generatePattern(numRails, plainText.length);
       let text = [...plainText];
-      let row = 0;
-      let col = 0;
-      let inc = 1;
-      while (text.length){
-        if (row >= numRails || row < 0) {
-          inc *= -1;
-          row += 2 * inc;
-        }
-        pattern[row][col] = text.shift();
-        row += inc;
-        col++;
-      }
+      let action = (text) => text.shift();
+      consumeTextAndDo(pattern, text, action);
       let encodedText = '';
       for (let row of pattern){
         for (let cell of row){
