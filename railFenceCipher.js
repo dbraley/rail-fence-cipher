@@ -28,7 +28,7 @@ export default function () {
     return container;
   }
 
-  function consumeTextAndDo(container, text, action){
+  function consumeTextAndDoAction(container, text, action){
     let row = 0;
     let col = 0;
     let inc = 1;
@@ -37,7 +37,7 @@ export default function () {
         inc *= -1;
         row += 2 * inc;
       }
-      container[row][col] = action(text);
+      action(container, text, row, col);
       row += inc;
       col++;
     }
@@ -51,8 +51,10 @@ export default function () {
       }
       let pattern = generatePattern(numRails, plainText.length);
       let text = [...plainText];
-      let action = (text) => text.shift();
-      consumeTextAndDo(pattern, text, action);
+      let action = (container, text, row, col) => {
+        container[row][col] = text.shift();
+      };
+      consumeTextAndDoAction(pattern, text, action);
       let encodedText = '';
       for (let row of pattern){
         for (let cell of row){
