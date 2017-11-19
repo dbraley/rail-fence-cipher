@@ -29,17 +29,17 @@ export default function () {
   }
 
   function consumeTextAndDoAction(container, text, action){
-    let row = 0;
-    let col = 0;
-    let inc = 1;
+    let idx = {
+      row: 0,
+      col: 0,
+      inc: 1
+    };
     while (text.length){
-      if (row >= container.length || row < 0) {
-        inc *= -1;
-        row += 2 * inc;
+      if (idx.row >= container.length || idx.row < 0) {
+        idx.inc *= -1;
+        idx.row += 2 * idx.inc;
       }
-      action(container, text, row, col);
-      row += inc;
-      col++;
+      action(container, text, idx);
     }
   }
 
@@ -51,8 +51,10 @@ export default function () {
       }
       let pattern = generatePattern(numRails, plainText.length);
       let text = [...plainText];
-      let action = (container, text, row, col) => {
-        container[row][col] = text.shift();
+      let action = (container, text, idx) => {
+        container[idx.row][idx.col] = text.shift();
+        idx.row += idx.inc;
+        idx.col++;
       };
       consumeTextAndDoAction(pattern, text, action);
       let encodedText = '';
@@ -74,29 +76,22 @@ export default function () {
       let pattern = generatePattern(numRails, cipherText.length);
       let text = [...cipherText];
 
-      let row=0;
-      let col=0;
-      let inc=1;
-      while (text.length) {
-        if (row >= numRails || row < 0) {
-          inc *= -1;
-          row += 2 * inc;
+      let action = (container, text, idx) => {
+        if (container[idx.row][idx.col]==='*'){
+          container[idx.row][idx.col] = text.shift();
         }
-        if (pattern[row][col]==='*'){
-          pattern[row][col] = text.shift();
+        idx.col ++;
+        if (idx.col > container[0].length){
+          idx.row += idx.inc;
+          idx.col = 0;
         }
-        col ++;
-        if (col > cipherText.length){
-          row += inc;
-          col = 0;
-        }
-      }
-
+      };
+      consumeTextAndDoAction(pattern, text, action);
 
       let plainText = '';
-      row = 0;
-      col = 0;
-      inc = 1;
+      let row = 0;
+      let col = 0;
+      let inc = 1;
       while (plainText.length < cipherText.length){
         if (row >= numRails || row < 0) {
           inc *= -1;
