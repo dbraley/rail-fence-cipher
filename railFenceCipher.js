@@ -25,8 +25,15 @@ class RailFenceCipher {
           input[2];
       }
       return input;
+    } else if (this.rails === 4) {
+      if (input.length === 5) {
+        return input[0] +
+          input[1] +
+          input[2] + input[4] +
+          input[3];
+      }
+      return input;
     }
-    return input;
   }
 
 }
