@@ -45,4 +45,36 @@ describe('RailFenceCipher business class can', () => {
       expect(cipher.encrypt('ABCDE')).toEqual('ACEBD');
     });
   });
+
+  describe('RailFenceCipher with 3 rails can', () => {
+    let cipher;
+
+    beforeEach(() => {
+      cipher = new RailFenceCipher(3);
+    });
+
+    test('Encrypt an empty String', () => {
+      expect(cipher.encrypt('')).toEqual('');
+    });
+
+    test('Encrypt A', () => {
+      expect(cipher.encrypt('A')).toEqual('A');
+    });
+
+    test('Encrypt AB', () => {
+      expect(cipher.encrypt('AB')).toEqual('AB');
+    });
+
+    test('Encrypt ABC', () => {
+      expect(cipher.encrypt('ABC')).toEqual('ABC');
+    });
+
+    // test('Encrypt ABCD', () => {
+    //   expect(cipher.encrypt('ABCD')).toEqual('ABDC');
+    // });
+    //
+    // test('Encrypt ABCDE', () => {
+    //   expect(cipher.encrypt('ABCDE')).toEqual('ACEBD');
+    // });
+  });
 });
