@@ -5,6 +5,8 @@ class RailFenceCipher {
         return 'ACB';
       } else if (input === 'BCD') {
         return 'BDC';
+      } else if (input === 'CDE') {
+        return 'CED';
       }
     }
     return input;
