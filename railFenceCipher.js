@@ -1,4 +1,7 @@
 class RailFenceCipher {
+  encrypt(input) {
+    return input;
+  }
 
 }
 

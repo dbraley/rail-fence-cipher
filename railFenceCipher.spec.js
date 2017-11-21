@@ -6,7 +6,19 @@ describe('RailFenceCipher business class can', () => {
     expect(cipher.constructor.name).toEqual('RailFenceCipher');
   });
 
-  xtest('skip a test marked with "xtest" instead of "test"', () => {
-    expect(null).toEqual(null);
+  describe('RailFenceCipher with 2 rails can', () => {
+    let cipher;
+
+    beforeEach(() => {
+      cipher = new RailFenceCipher(2);
+    });
+
+    test('Encrypt an empty String', () => {
+      expect(cipher.encrypt('')).toEqual('');
+    });
+
+    test('Encrypt A', () => {
+      expect(cipher.encrypt('A')).toEqual('A');
+    });
   });
 });
