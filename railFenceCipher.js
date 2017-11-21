@@ -4,9 +4,14 @@ class RailFenceCipher {
   }
 
   encrypt(input) {
+    const rail_0 = [];
+    const rail_1 = [];
     if (this.rails === 2) {
       if (input.length === 3) {
-        return input[0] + input[2] + input[1];
+        rail_0.push(input[0]);
+        rail_1.push(input[1]);
+        rail_0.push(input[2]);
+        return [].concat(rail_0, rail_1).join('');
       } else if (input.length === 4) {
         return input[0] + input[2] + input[1] + input[3];
       } else if (input.length === 5) {
