@@ -69,12 +69,12 @@ describe('RailFenceCipher business class can', () => {
       expect(cipher.encrypt('ABC')).toEqual('ABC');
     });
 
-    // test('Encrypt ABCD', () => {
-    //   expect(cipher.encrypt('ABCD')).toEqual('ABDC');
-    // });
-    //
+    test('Encrypt ABCD', () => {
+      expect(cipher.encrypt('ABCD')).toEqual('ABDC');
+    });
+
     // test('Encrypt ABCDE', () => {
-    //   expect(cipher.encrypt('ABCDE')).toEqual('ACEBD');
+    //   expect(cipher.encrypt('ABCDE')).toEqual('AEBDC');
     // });
   });
 });

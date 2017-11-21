@@ -14,10 +14,14 @@ class RailFenceCipher {
       }
       return input;
     } else if (this.rails === 3) {
-      return input;
-    } else {
+      if (input.length === 4) {
+        return input[0] +
+          input[1] + input[3] +
+          input[2];
+      }
       return input;
     }
+    return input;
   }
 
 }
