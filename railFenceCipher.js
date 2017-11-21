@@ -23,7 +23,6 @@ class RailFenceCipher {
       if (input.length >= 5) {
         rail_0.push(input[4]);
       }
-      return [].concat(rail_0, rail_1).join('');
     } else if (this.rails === 3) {
       rail_0.push(input[0]);
       rail_1.push(input[1]);
@@ -34,7 +33,6 @@ class RailFenceCipher {
       if (input.length >= 5) {
         rail_0.push(input[4]);
       }
-      return [].concat(rail_0, rail_1, rail_2).join('');
     } else if (this.rails === 4) {
       rail_0.push(input[0]);
       rail_1.push(input[1]);
@@ -43,8 +41,8 @@ class RailFenceCipher {
       if (input.length >= 5) {
         rail_2.push(input[4]);
       }
-      return [].concat(rail_0, rail_1, rail_2, rail_3).join('');;
     }
+    return [].concat(rail_0, rail_1, rail_2, rail_3).join('');
   }
 
 }
