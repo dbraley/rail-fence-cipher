@@ -1,7 +1,7 @@
 import RailFenceCipher from './railFenceCipher';
 
 describe('RailFenceCipher business class can', () => {
-  test('return an instance of the Kata class', () => {
+  test('return an instance of the RailFenceCipher class', () => {
     const cipher = new RailFenceCipher();
     expect(cipher.constructor.name).toEqual('RailFenceCipher');
   });
