@@ -73,8 +73,8 @@ describe('RailFenceCipher business class can', () => {
       expect(cipher.encrypt('ABCD')).toEqual('ABDC');
     });
 
-    // test('Encrypt ABCDE', () => {
-    //   expect(cipher.encrypt('ABCDE')).toEqual('AEBDC');
-    // });
+    test('Encrypt ABCDE', () => {
+      expect(cipher.encrypt('ABCDE')).toEqual('AEBDC');
+    });
   });
 });

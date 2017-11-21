@@ -19,6 +19,11 @@ class RailFenceCipher {
           input[1] + input[3] +
           input[2];
       }
+      if (input.length === 5) {
+        return input[0] + input[4] +
+          input[1] + input[3] +
+          input[2];
+      }
       return input;
     }
     return input;
