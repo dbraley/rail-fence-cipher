@@ -109,4 +109,10 @@ describe('RailFenceCipher business class can', () => {
       expect(cipher.encrypt('ABCDE')).toEqual('ABCED');
     });
   });
+
+  describe('The order of rails to use', () => {
+    test('Should make sense for 1', () => {
+      expect(new RailFenceCipher(1).generateRailToUse()).toEqual([0]);
+    });
+  });
 });

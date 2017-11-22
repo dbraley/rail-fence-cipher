@@ -14,7 +14,7 @@ class RailFenceCipher {
   }
 
   generateRailToUse() {
-    let railToUse;
+    let railToUse = [0];
     if (this.rails === 2) {
       railToUse = [0, 1];
     } else if (this.rails === 3) {
