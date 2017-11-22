@@ -122,5 +122,9 @@ describe('RailFenceCipher business class can', () => {
     test('Should make sense for 3', () => {
       expect(new RailFenceCipher(3).generateRailToUse()).toEqual([0, 1, 2, 1]);
     });
+
+    test('Should make sense for 4', () => {
+      expect(new RailFenceCipher(4).generateRailToUse()).toEqual([0, 1, 2, 3, 2, 1]);
+    });
   });
 });

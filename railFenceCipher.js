@@ -14,13 +14,22 @@ class RailFenceCipher {
   }
 
   generateRailToUse() {
-    let railToUse = [0];
+    if(this.rails === 1) {
+      return [0];
+    }
+    let railToUse;
     if (this.rails === 2) {
       railToUse = [0, 1];
     } else if (this.rails === 3) {
       railToUse = [0, 1, 2, 1];
-    } else if (this.rails === 4) {
-      railToUse = [0, 1, 2, 3, 2, 1];
+    } else {
+      railToUse = [];
+      for (let i = 0; i < this.rails - 1; i++) {
+        railToUse.push(i);
+      }
+      for (let i = this.rails - 1; i > 0; i--) {
+        railToUse.push(i);
+      }
     }
     return railToUse;
   }
