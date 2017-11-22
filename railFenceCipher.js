@@ -17,14 +17,10 @@ class RailFenceCipher {
         myRails[rail].push(input[i]);
       }
     } else if (this.rails === 3) {
-      myRails[0].push(input[0]);
-      myRails[1].push(input[1]);
-      myRails[2].push(input[2]);
-      if (input.length >= 4) {
-        myRails[1].push(input[3]);
-      }
-      if (input.length >= 5) {
-        myRails[0].push(input[4]);
+      let railToUse = [0,1,2,1];
+      for (let i = 0; i < input.length; i++) {
+        let rail = railToUse[i%(railToUse.length)];
+        myRails[rail].push(input[i]);
       }
     } else if (this.rails === 4) {
       myRails[0].push(input[0]);
