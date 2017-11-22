@@ -23,6 +23,10 @@ class RailFenceCipher {
         myRails[rail].push(input[i]);
       }
     }
+    return this.joinRails(myRails);
+  }
+
+  joinRails(myRails) {
     return [].concat(myRails[0], myRails[1], myRails[2], myRails[3]).join('');
   }
 
