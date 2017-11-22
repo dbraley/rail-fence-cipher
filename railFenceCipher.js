@@ -12,16 +12,9 @@ class RailFenceCipher {
       myRails[i] = [];
     }
     if (this.rails === 2) {
-      myRails[0].push(input[0]);
-      myRails[1].push(input[1]);
-      if (input.length >= 3) {
-        myRails[0].push(input[2]);
-      }
-      if (input.length >= 4) {
-        myRails[1].push(input[3]);
-      }
-      if (input.length >= 5) {
-        myRails[0].push(input[4]);
+      for (let i = 0; i < input.length; i++) {
+        let rail = i%2;
+        myRails[rail].push(input[i]);
       }
     } else if (this.rails === 3) {
       myRails[0].push(input[0]);
