@@ -6,8 +6,9 @@ class RailFenceCipher {
   encrypt(input) {
     const myRails = this.initRails();
     if (this.rails === 2) {
+      let railToUse = [0,1];
       for (let i = 0; i < input.length; i++) {
-        let rail = i%2;
+        let rail = railToUse[i%(railToUse.length)];
         myRails[rail].push(input[i]);
       }
     } else if (this.rails === 3) {
