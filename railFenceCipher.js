@@ -1,13 +1,13 @@
 import { range, flatten } from 'underscore';
 
 class RailFenceCipher {
-  constructor(rails) {
+  constructor(rails = 0) {
     this.railCount = rails;
     this.railMapping = this.generateRailMapping();
   }
 
   generateRailMapping() {
-    if (this.railCount === undefined || this.railCount <= 1) return [0];
+    if (this.railCount <= 1) return [0];
     return [].concat(range(0, this.railCount - 1)).concat(range(this.railCount - 1, 0, -1));
   }
 
