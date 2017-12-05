@@ -163,5 +163,9 @@ describe('RailFenceCipher business class can', () => {
       expect(cipher.decrypt('XZY')).toEqual('XYZ');
     });
 
+    test('Decode ABCDE', () => {
+      expect(cipher.decrypt(cipher.encrypt('ABCDE'))).toEqual('ABCDE');
+    });
+
   });
 });
