@@ -24,6 +24,9 @@ class RailFenceCipher {
   }
 
   decrypt(input) {
+    if (this.railCount === 3) {
+      return input;
+    }
     if (input.length === 3) {
       return input[0] + input[2] + input[1];
     } else if (input.length === 4) {

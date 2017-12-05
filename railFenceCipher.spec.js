@@ -166,6 +166,16 @@ describe('RailFenceCipher business class can', () => {
     test('Decode ABCDE', () => {
       expect(cipher.decrypt(cipher.encrypt('ABCDE'))).toEqual('ABCDE');
     });
+  });
+  describe('Decoding an existing cipher with 3 rails', () => {
+    let cipher;
 
+    beforeEach(() => {
+      cipher = new RailFenceCipher(3);
+    });
+
+    test('Decode ABC', () => {
+      expect(cipher.decrypt(cipher.encrypt('ABC'))).toEqual('ABC');
+    });
   });
 });
