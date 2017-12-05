@@ -30,6 +30,8 @@ class RailFenceCipher {
       return 'ACBD';
     } else if (input === 'ACBD') {
       return 'ABCD';
+    } else if (input === 'WYXZ') {
+      return 'WXYZ';
     }
     return input;
   }

@@ -155,6 +155,9 @@ describe('RailFenceCipher business class can', () => {
       expect(cipher.decrypt('ACBD')).toEqual('ABCD');
     });
 
+    test('Decode WYXZ', () => {
+      expect(cipher.decrypt('WYXZ')).toEqual('WXYZ');
+    });
 
   });
 });
