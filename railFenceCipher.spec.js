@@ -132,11 +132,29 @@ describe('RailFenceCipher business class can', () => {
     let cipher;
 
     beforeEach(() => {
-      cipher = new RailFenceCipher(4);
+      cipher = new RailFenceCipher(2);
     });
 
     test('Decode A', () => {
       expect(cipher.decrypt('A')).toEqual('A');
     });
+
+    test('Decode B', () => {
+      expect(cipher.decrypt('B')).toEqual('B');
+    });
+
+    test('Decode ABC', () => {
+      expect(cipher.decrypt('ABC')).toEqual('ACB');
+    });
+
+    test('Decode ABCD', () => {
+      expect(cipher.decrypt('ABCD')).toEqual('ACBD');
+    });
+
+    test('Decode ACBD', () => {
+      expect(cipher.decrypt('ACBD')).toEqual('ABCD');
+    });
+
+
   });
 });

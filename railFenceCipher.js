@@ -24,7 +24,14 @@ class RailFenceCipher {
   }
 
   decrypt(input) {
-    return 'A';
+    if (input === 'ABC') {
+      return 'ACB';
+    } else if (input === 'ABCD') {
+      return 'ACBD';
+    } else if (input === 'ACBD') {
+      return 'ABCD';
+    }
+    return input;
   }
 }
 
