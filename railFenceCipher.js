@@ -24,10 +24,8 @@ class RailFenceCipher {
   }
 
   decrypt(input) {
-    if (input === 'ABC') {
-      return 'ACB';
-    } else if (input === 'XZY') {
-      return 'XYZ';
+    if (input.length === 3) {
+      return input[0] + input[2] + input[1];
     } else if (input.length === 4) {
       return input[0] + input[2] + input[1] + input[3];
     }
