@@ -127,4 +127,16 @@ describe('RailFenceCipher business class can', () => {
       expect(new RailFenceCipher(4).generateRailMapping()).toEqual([0, 1, 2, 3, 2, 1]);
     });
   });
+
+  describe('Decoding an existing cipher', () => {
+    let cipher;
+
+    beforeEach(() => {
+      cipher = new RailFenceCipher(4);
+    });
+
+    test('Decode A', () => {
+      expect(cipher.decrypt('A')).toEqual('A');
+    });
+  });
 });

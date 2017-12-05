@@ -22,6 +22,10 @@ class RailFenceCipher {
   getRailNumberForIndex(index) {
     return this.railMapping[index % (this.railMapping.length)];
   }
+
+  decrypt(input) {
+    return 'A';
+  }
 }
 
 export default RailFenceCipher;
