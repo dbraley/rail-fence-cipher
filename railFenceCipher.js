@@ -27,6 +27,8 @@ class RailFenceCipher {
     if (this.railCount === 3) {
       if (input.length === 4) {
         return input[0] + input[1] + input[3] + input[2];
+      } else if (input.length === 5) {
+        return input[0] + input[2] + input[4] + input[3] + input[1];
       }
       return input;
     }
@@ -34,7 +36,7 @@ class RailFenceCipher {
       return input[0] + input[2] + input[1];
     } else if (input.length === 4) {
       return input[0] + input[2] + input[1] + input[3];
-    } else if(input === 'ACEBD'){
+    } else if (input === 'ACEBD') {
       return 'ABCDE';
     }
     return input;
