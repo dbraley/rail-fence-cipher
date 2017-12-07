@@ -33,12 +33,22 @@ class RailFenceCipher {
       return input;
     }
     if (this.railCount === 2) {
+      const myRails = range(0, this.railCount).map(() => []);
       if (input.length === 3) {
-        return input[0] + input[2] + input[1];
+        myRails[0].push(input[0], input[1]);
+        myRails[1].push(input[2]);
+        return myRails[0][0] + myRails[1][0] + myRails[0][1];
       } else if (input.length === 4) {
-        return input[0] + input[2] + input[1] + input[3];
+        myRails[0].push(input[0], input[1]);
+        myRails[1].push(input[2], input[3]);
+        return myRails[0][0] + myRails[1][0]
+          + myRails[0][1] + myRails[1][1];
       } else if (input.length === 5) {
-        return input[0] + input[3] + input[1] + input[4] + input[2];
+        myRails[0].push(input[0], input[1], input[2]);
+        myRails[1].push(input[3], input[4]);
+        return myRails[0][0] + myRails[1][0]
+          + myRails[0][1] + myRails[1][1]
+          + myRails[0][2];
       }
     }
     return input;
