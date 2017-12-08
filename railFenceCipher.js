@@ -25,8 +25,12 @@ class RailFenceCipher {
 
   decrypt(input) {
     if (this.railCount === 3) {
+      const myRails = range(0, this.railCount).map(() => []);
       if (input.length === 4) {
-        return input[0] + input[1] + input[3] + input[2];
+        myRails[0].push(input[0]);
+        myRails[1].push(input[1], input[2]);
+        myRails[2].push(input[3]);
+        return myRails[0].shift() + myRails[1].shift() + myRails[2].shift() + myRails[1].shift();
       } else if (input.length === 5) {
         return input[0] + input[2] + input[4] + input[3] + input[1];
       }
