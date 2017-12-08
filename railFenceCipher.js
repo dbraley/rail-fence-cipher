@@ -35,9 +35,14 @@ class RailFenceCipher {
         myRails[0].push(input[0], input[1]);
         myRails[1].push(input[2], input[3]);
         myRails[2].push(input[4]);
-        return myRails[0].shift() + myRails[1].shift() + myRails[2].shift() + myRails[1].shift() + myRails[0].shift();
+
+        let result = '';
+        for (let i = 0; i < input.length; i++) {
+          let number = this.getRailNumberForIndex(i);
+          result += myRails[number].shift();
+        }
+        return result;
       }
-      return input;
     }
     if (this.railCount === 2) {
       const myRails = range(0, this.railCount).map(() => []);
