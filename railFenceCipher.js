@@ -30,10 +30,15 @@ class RailFenceCipher {
     if (this.railCount === 3) {
       const myRails = range(0, this.railCount).map(() => []);
       if (input.length === 4) {
-        myRails[0] = input.slice(0, 1).split('');
-        myRails[1] = input.slice(1, 3).split('');
-        myRails[2] = input.slice(3, 5).split('');
-        console.log(myRails);
+        let start = 0;
+        let end = start + 1;
+        myRails[0] = input.slice(start, end).split('');
+        start = end;
+        end = start + 2;
+        myRails[1] = input.slice(start, end).split('');
+        start = end;
+        end = start + 2;
+        myRails[2] = input.slice(start, end).split('');
       } else if (input.length === 5) {
         myRails[0] = input.slice(0, 2).split('');
         myRails[1] = input.slice(2, 4).split('');
