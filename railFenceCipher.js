@@ -29,26 +29,32 @@ class RailFenceCipher {
     }
     if (this.railCount === 3) {
       const myRails = range(0, this.railCount).map(() => []);
+      const railBoundary = input.length/this.railMapping.length;
+      // console.log(input.length, railBoundary);
       if (input.length === 4) {
         let start = 0;
-        let end = start + 1;
+        let end = start + railBoundary;
         myRails[0] = input.slice(start, end).split('');
         start = end;
-        end = start + 2;
+        end = start + (railBoundary * 2);
         myRails[1] = input.slice(start, end).split('');
         start = end;
-        end = start + 2;
+        end = start + railBoundary;
         myRails[2] = input.slice(start, end).split('');
       } else if (input.length === 5) {
         let start = 0;
-        let end = start + 2;
-        myRails[0] = input.slice(start, end).split('');
+        let end = start + railBoundary;
+        myRails[0] = input.slice(Math.ceil(start), Math.ceil(end)).split('');
+        console.log(input, start, end, myRails[0]);
         start = end;
-        end = start + 2;
-        myRails[1] = input.slice(start, end).split('');
+        end = start + (railBoundary * 2);
+        myRails[1] = input.slice(Math.ceil(start), Math.ceil(end)).split('');
+        console.log(input, start, end, myRails[1]);
         start = end;
-        end = start + 2;
-        myRails[2] = input.slice(start, end).split('');
+        end = start + railBoundary;
+        myRails[2] = input.slice(Math.ceil(start), Math.ceil(end)).split('');
+        console.log(input, start, end, myRails[2]);
+        console.log(myRails);
       } else if (input.length === 6) {
         let start = 0;
         let end = start + 2;
