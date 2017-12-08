@@ -34,21 +34,18 @@ class RailFenceCipher {
     }
     if (this.railCount === 2) {
       const myRails = range(0, this.railCount).map(() => []);
+      const railBoundary = Math.ceil(input.length / 2);
+      myRails[0] = input.slice(0, railBoundary).split('');
+      myRails[1] = input.slice(railBoundary, input.length).split('');
       if (input.length === 3) {
-        myRails[0].push(input[0], input[1]);
-        myRails[1].push(input[2]);
-        return myRails[0][0] + myRails[1][0] + myRails[0][1];
+        return myRails[0].shift() + myRails[1].shift() + myRails[0].shift();
       } else if (input.length === 4) {
-        myRails[0].push(input[0], input[1]);
-        myRails[1].push(input[2], input[3]);
-        return myRails[0][0] + myRails[1][0]
-          + myRails[0][1] + myRails[1][1];
+        return myRails[0].shift() + myRails[1].shift()
+          + myRails[0].shift() + myRails[1].shift();
       } else if (input.length === 5) {
-        myRails[0].push(input[0], input[1], input[2]);
-        myRails[1].push(input[3], input[4]);
-        return myRails[0][0] + myRails[1][0]
-          + myRails[0][1] + myRails[1][1]
-          + myRails[0][2];
+        return myRails[0].shift() + myRails[1].shift()
+          + myRails[0].shift() + myRails[1].shift()
+          + myRails[0].shift();
       }
     }
     return input;

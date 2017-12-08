@@ -188,5 +188,12 @@ describe('RailFenceCipher business class can', () => {
       console.log(cipher.encrypt(input));
       expect(cipher.decrypt(cipher.encrypt(input))).toEqual(input);
     });
+
+    test('foo', () => {
+      const a = [0, 1, 2];
+      const b = a.shift();
+      expect(a).toEqual([1, 2]);
+      expect(b).toEqual(0);
+    });
   });
 });
