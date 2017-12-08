@@ -38,6 +38,10 @@ class RailFenceCipher {
         myRails[0] = input.slice(0, 2).split('');
         myRails[1] = input.slice(2, 4).split('');
         myRails[2] = input.slice(4, 6).split('');
+      } else if (input.length === 6) {
+        myRails[0] = input.slice(0, 2).split('');
+        myRails[1] = input.slice(2, 5).split('');
+        myRails[2] = input.slice(5, 7).split('');
       }
       let result = '';
       for (let i = 0; i < input.length; i++) {
