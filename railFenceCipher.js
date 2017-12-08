@@ -37,23 +37,11 @@ class RailFenceCipher {
       const railBoundary = Math.ceil(input.length / 2);
       myRails[0] = input.slice(0, railBoundary).split('');
       myRails[1] = input.slice(railBoundary, input.length).split('');
-      if (input.length === 3) {
-        console.log(this.railMapping);
-        return myRails[0].shift() + myRails[1].shift() + myRails[0].shift();
-      } else if (input.length === 4) {
-        return myRails[0].shift() + myRails[1].shift()
-          + myRails[0].shift() + myRails[1].shift();
-      } else if (input.length === 5) {
-        return myRails[0].shift() + myRails[1].shift()
-          + myRails[0].shift() + myRails[1].shift()
-          + myRails[0].shift();
-      } else {
-        let result = '';
-        for (let i = 0; i < input.length; i++) {
-          result += myRails[i % 2].shift();
-        }
-        return result;
+      let result = '';
+      for (let i = 0; i < input.length; i++) {
+        result += myRails[i % 2].shift();
       }
+      return result;
     }
     return input;
   }
