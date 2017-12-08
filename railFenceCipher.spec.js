@@ -190,9 +190,14 @@ describe('RailFenceCipher business class can', () => {
       expect(cipher.decrypt(cipher.encrypt(input))).toEqual(input);
     });
 
-
     test('Encrypt and Decrypt ABCDEF', () => {
       const input = 'ABCDEF';
+      console.log(cipher.encrypt(input));
+      expect(cipher.decrypt(cipher.encrypt(input))).toEqual(input);
+    });
+
+    test('Encrypt and Decrypt ABCDEFG', () => {
+      const input = 'ABCDEFG';
       console.log(cipher.encrypt(input));
       expect(cipher.decrypt(cipher.encrypt(input))).toEqual(input);
     });
