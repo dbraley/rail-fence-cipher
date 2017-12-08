@@ -32,7 +32,10 @@ class RailFenceCipher {
         myRails[2].push(input[3]);
         return myRails[0].shift() + myRails[1].shift() + myRails[2].shift() + myRails[1].shift();
       } else if (input.length === 5) {
-        return input[0] + input[2] + input[4] + input[3] + input[1];
+        myRails[0].push(input[0], input[1]);
+        myRails[1].push(input[2], input[3]);
+        myRails[2].push(input[4]);
+        return myRails[0].shift() + myRails[1].shift() + myRails[2].shift() + myRails[1].shift() + myRails[0].shift();
       }
       return input;
     }
